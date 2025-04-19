@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 투두리스트 애플리케이션
 
-## Getting Started
+## 프로젝트 소개
 
-First, run the development server:
+이 애플리케이션은 할 일을 효율적으로 관리할 수 있는 모던한 웹 기반 투두리스트입니다. React와 Next.js를 기반으로 개발되었으며, 사용자가 할 일을 생성, 조회, 수정, 삭제(CRUD)할 수 있는 기능을 제공합니다.
+
+## 주요 기능
+
+- **할 일 관리**: 할 일 추가, 수정, 삭제 및 상태 변경
+- **진행 중/완료 구분**: 할 일을 진행 중과 완료로 구분하여 표시
+- **상세 페이지**: 각 할 일에 대한 상세 정보 페이지 제공
+- **메모 기능**: 할 일에 메모 추가 가능
+- **이미지 첨부**: 할 일에 관련 이미지 첨부 가능
+- **반응형 디자인**: 모바일부터 데스크톱까지 다양한 화면 크기에 대응
+
+## 기술 스택
+
+- **프론트엔드**: React, Next.js, TypeScript
+- **스타일링**: Tailwind V4
+- **API 통신**: Fetch API
+- **상태 관리**: React Hooks (useState, useEffect)
+
+## 컴포넌트 구조
+
+### 공통 컴포넌트
+
+- **Button**: 재사용 가능한 버튼 컴포넌트
+- **Checkbox**: 할 일 완료 여부를 표시하는 체크박스 컴포넌트
+- **Header**: 전역적으로 사용하는 헤더
+- **Input**: 재사용 가능한 입력 필드 컴포넌트
+
+### 할 일 관련 컴포넌트
+
+- **TodoForm**: 새 할 일 추가를 위한 폼 컴포넌트
+- **TodoItem**: 개별 할 일 항목을 표시하는 컴포넌트
+- **TodoList**: 할 일 목록을 표시하는 컴포넌트
+
+### 페이지
+
+- **홈페이지**: 할 일 목록과 추가 폼을 포함하는 메인 페이지
+- **상세 페이지**: 특정 할 일의 세부 정보를 확인하고 수정할 수 있는 페이지
+
+## API 서비스
+
+`todoService.js`는 다음과 같은 API 엔드포인트와 상호작용합니다:
+
+- **getAllTodos**: 모든 할 일 목록 조회
+- **getTodoById**: 특정 할 일 상세 정보 조회
+- **createTodo**: 새 할 일 생성
+- **updateTodo**: 할 일 정보 업데이트
+- **deleteTodo**: 할 일 삭제
+- **uploadImage**: 할 일에 이미지 업로드
+
+## 주요 기능 설명
+
+### 홈페이지
+
+홈페이지는 할 일 관리의 중심 허브입니다:
+
+- 상단에 위치한 입력 폼을 통해 새로운 할 일을 빠르게 추가할 수 있습니다.
+- 할 일 목록은 '진행 중'과 '완료'로 구분되어 표시됩니다.
+- 각 할 일 항목은 체크박스를 통해 상태를 쉽게 변경할 수 있습니다.
+- 할 일 항목을 클릭하면 상세 페이지로 이동합니다.
+
+### 상세 페이지
+
+상세 페이지에서는 할 일에 대한 추가 정보를 확인하고 편집할 수 있습니다:
+
+- 할 일의 제목과 완료 상태를 변경할 수 있습니다.
+- 메모 기능을 통해 할 일에 상세 내용을 추가할 수 있습니다.
+- 이미지를 첨부하여 할 일에 시각적 정보를 추가할 수 있습니다.
+- '수정 완료' 버튼으로 변경 사항을 저장하거나 '삭제하기' 버튼으로 할 일을 삭제할 수 있습니다.
+
+## 설치 및 실행 방법
 
 ```bash
+# 저장소 클론
+git clone https://github.com/jadewisemann/todo--next-ts
+
+# 디렉토리 이동
+cd todo-app
+
+# 의존성 설치
+npm install
+
+# 개발 서버 실행
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

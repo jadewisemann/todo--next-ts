@@ -1,9 +1,15 @@
+@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/nanumsquare.css);
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
+
+@theme  {
+  --shadow-solid: 4px 4px 0 0 rgba(0, 0, 0, 0.8);
+}
+
 
 @theme inline {
   --color-background: var(--background);
@@ -22,5 +28,28 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: NanumSquare, Arial, Helvetica, sans-serif;
+  min-width: 384px;
+}
+
+/* custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {  
+  background-color: #FDE68A;
+  color: #FDE68A;
+  border-radius: 3px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #FDE68A;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  padding-right: 4px;
+  scrollbar-color: #FDE68A transparent;
 }
