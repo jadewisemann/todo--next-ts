@@ -67,11 +67,13 @@ export async function getTodoById(id: string): Promise<Todo> {
  */
 export async function createTodo(todo: TodoCreateRequest): Promise<Todo> {
   try {
-    
+    console.log('todo',todo)
+
     const requestBody = {
       name: todo.name
     };
-    
+
+
     const response = await fetch(`${BASE_URL}/items`, {
       ...API_OPTIONS,
       method: 'POST',

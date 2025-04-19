@@ -6,7 +6,8 @@ import * as todoService from '@/lib/todoService';
 import type { Todo } from '@/types/todo';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import React, { useEffect, useState, useRef } from 'react';
+import type React from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface TodoDetailPageProps {
   params: {
@@ -20,8 +21,8 @@ interface TodoDetailPageProps {
  */
 export default function TodoDetailPage({ params }: TodoDetailPageProps) {
   // 파라미터에서 할 일 ID 추출
-  const unwrappedParams = React.use(params);
-  const { id } = unwrappedParams;
+  const { id } = params;
+
   const router = useRouter();
   
   // 상태 관리

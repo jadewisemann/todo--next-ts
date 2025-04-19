@@ -45,12 +45,12 @@ export default function HomePage() {
 
   /**
    * 새 할 일 추가 핸들러
-   * @param title - 추가할 할 일의 제목
+   * @param name - 추가할 할 일의 제목
    */
-  const handleAddTodo = async (title: string) => {
+  const handleAddTodo = async (name: string) => {
     try {
       setIsLoading(true);
-      await todoService.createTodo({ title });
+      await todoService.createTodo({ name });
       fetchTodos();
     } catch (err) {
       setError('할 일을 추가하는데 실패했습니다. 다시 시도해주세요.');
