@@ -19,7 +19,7 @@ interface TodoDetailPageProps {
  * 할 일 상세 페이지 컴포넌트
  * 특정 할 일의 세부 정보를 보고 편집할 수 있는 페이지
  */
-export default function TodoDetailPage({ params }: TodoDetailPageProps) {
+export default function TodoDetailPage({ params }: any) {
   // 파라미터에서 할 일 ID 추출
   const { id } = params;
 
